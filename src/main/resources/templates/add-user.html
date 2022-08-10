@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset=" UTF-8">
+    <title>Add User</title>
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+</head>
+<body>
+<div id="wrapper">
+    <div id="content">
+        <!-- Navigator -->
+        <nav>
+            <div class="navbar">
+                <div class="navbar-banner"><a style="color: white;" href="/index"><img src="" alt="Logo"></a></div>
+                <div class="nav-links"></div>
+            </div>
+        </nav>
+    </div>
+
+    <div class="add-update">
+        <form action="#" th:action="@{/adduser}" th:object="${user}" method="post">
+            <label for="name">Name</label>
+            <input type="text" th:field="*{name}" id="name" placeholder="Name">
+            <span th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></span>
+            <label for="email">Email</label>
+            <input type="text" th:field="*{email}" id="email" placeholder="Email">
+            <span th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></span>
+            <input class="button-type-1" type="submit" value="Add User">
+        </form>
+    </div>
+</div>
+<footer id="footer">
+    <div id="footer-content">
+        <p>Copyright ©2021 All rights reserved |</p>
+        <p title="Popa Catalin">&nbsp;Popa Catalin</p>
+    </div>
+</footer>
+</body>
+</html>

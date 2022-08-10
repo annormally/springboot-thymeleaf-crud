@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>CRUD Spring Boot - Thymeleaf</title>
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+    <link rel="stylesheet" type="text/css" href="/css/table-style.css">
+</head>
+<body>
+<div id="wrapper">
+    <div id="content">
+        <!-- Navigator -->
+        <nav>
+            <div class="navbar">
+                <div class="navbar-banner"><a style="color: white" href="/index"><img src="" alt="Logo"></a></div>
+                <div class="nav-links"></div>
+            </div>
+        </nav>
+    </div>
+
+    <h2 style="text-align: center;">Users</h2>
+    <div class="user-table-content">
+        <table class="user-table">
+            <thead>
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Edit</th>
+                <th>Delete</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="user : ${users}">
+                <td th:text="${user.name}"></td>
+                <td th:text="${user.email}"></td>
+                <td><a class="button-type-1" th:href="@{/edit/{id}(id=${user.id})}">Edit</a></td>
+                <td><a class="button-type-1" th:href="@{/delete/{id}(id=${user.id})}">Delete</a></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <p style="text-align: center;"><a class="button-type-1" href="/addUser">Add a new user</a></p>
+</div>
+
+<footer id="footer">
+    <div id="footer-content">
+        <p>Copyright ©2022 All rights reserved |</p>
+        <p title="Popa Catalin">&nbsp;Popa Catalin</p>
+    </div>
+</footer>
+</div>
+</body>
+</html>
